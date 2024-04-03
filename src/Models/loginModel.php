@@ -26,6 +26,18 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["email"])){
         $_SESSION["user_id"] = $user["user_id"];
         $_SESSION["email"] = $user["email"];
         $_SESSION["login_error"] = '';
+
+        //check if an admin logged in
+        //redirect to classes manager page if so
+        $sql = "SELECT email FROM users WHERE full_name = \"admin\"";
+        $stmt = $pdo->query($sql);
+        $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($admins as $admin) {
+            if (in_array($_SESSION["email"], $admin)) {
+                header("Location: ../Controllers/adminClassesManager.php");
+                exit();
+            }
+        }
   
         header("Location: ../../public/index.php");
       } else{

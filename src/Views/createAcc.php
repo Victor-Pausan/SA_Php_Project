@@ -15,7 +15,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <script src="js/createacc-form-validation.js" defer></script>
+  <script src="../../public/js/createacc-form-validation.js" defer></script>
   <title>Create an account</title>
 </head>
 
@@ -31,7 +31,7 @@
                 <h1>CREATE AN ACCOUNT</h1>
               </div>
               <div class="login-link">
-                <a href="loginpage.php">
+                <a href="login.php">
                     <h5>ALREADY HAVE AN ACCOUNT?</h5>
                 </a>
               </div>

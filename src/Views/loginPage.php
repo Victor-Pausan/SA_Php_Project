@@ -31,7 +31,7 @@
                 <h1>LOG IN</h1>
               </div>
               <div class="login-link">
-                <a href="createacc.php">
+                <a href="createAccount.php">
                     <h5>CREATE AN ACCOUNT</h5>
                 </a>
                 <h5 class="invalid-login-msg"><?php echo $loginMessage ?></h5>

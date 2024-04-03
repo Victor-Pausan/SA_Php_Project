@@ -4,6 +4,7 @@ require_once "../inc/includes.php";
 $headerAssetsPath = "assets/img/";
 $headerHomePath = "index.php";
 $headerLoginPath = "../src/Controllers/login.php";
+$headerControllersPath = "../src/Controllers/";
 
 if(checkLogin()){
     $loggedIn = "Log out";

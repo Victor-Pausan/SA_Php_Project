@@ -63,7 +63,7 @@
                     <h2 class="square-title">Where Luxury and Fitness Meet</h2>
                     <p class="square-p">Clubs that deliver an unrivaled experience to maximize your potential, and
                         luxury amenities that keep you performing at your best.</p>
-                    <a href="#clubs" title="Comming soon">
+                    <a href="<?php echo $headerControllersPath."clubs.php" ?>" title="Comming soon">
                         <p class="square-p">Choose club</p>
                     </a>
                 </div>

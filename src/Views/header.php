@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link navbar-brand" href="#clubs" title="Preview">Clubs</a>
+                    <a class="nav-link navbar-brand" href="<?php echo $headerControllersPath."clubs.php" ?>" title="Preview">Clubs</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link navbar-brand" href="#" title="Coming soon">Membership</a>
