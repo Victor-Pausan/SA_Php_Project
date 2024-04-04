@@ -21,39 +21,29 @@
         <?php require_once "header.php" ?>
         <main class="main">
             <section class="container my-5">
-                <h1 class="text-left mb-5">FIND A CLUB NEAR YOU</h1>
-                <form class="form-inline justify-content-center" style="max-width: 450px;">
-                    <select name="state" class="form-select mb-3 form-select-lg" aria-label="Default select example">
-                        <option selected>Choose a state</option>
-                        <?php
-                        foreach ($states as $state) {
-                            echo '<option value="' . $state["state_id"] . '">' . $state["state_name"] . '</option>';
-                        }
-                        ?>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </form>
+                <h1 class="text-left mb-5"><?php echo strtoupper($state["state_name"])." CLUBS" ?></h1>
             </section>
 
             <section class="container my-5">
                 <h2 class="text-left mb-5">Featured Clubs</h2>
                 <div class="row">
                     <?php
-                        foreach($states as $state){
+                        foreach($locations as $location){
+                            $googleMapsAddress = adjustAddress($location["address"]);
                             echo
                             '
-                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="clubsInState.php?state='.$state["state_id"].'">
+                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="https://www.google.com/maps/search/?api=1&query='.$googleMapsAddress.'" target="_blank">
                                 <div class="card text-bg-light mb-4 p-3">
                                     <div class="row g-0">
                                         <div class="col-md-8">
                                             <div class="card-body p-4">
-                                                <h5 class="card-title">'.$state["state_name"].'</h5>
-                                                <p class="card-text">'.$state["state_info"].'</p>
-                                                <p class="card-text"><small class="text-muted">View all clubs</small></p>
+                                                <h5 class="card-title">'.$location["zone"].'</h5>
+                                                <p class="card-text">'.$location["address"].'</p>
+                                                <p class="card-text"><small class="text-muted">View on map</small></p>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="../../public/assets/img/'.$state["state_picture_path"].'" class="img-fluid rounded-start" alt="...">
+                                            <img src="../../public/assets/img/'.$location["location_picture_path"].'" class="img-fluid rounded-start" alt="...">
                                         </div>
                                     </div>
                                 </div>

@@ -24,7 +24,7 @@
                     <a class="nav-link navbar-brand" href="classes.html" title="Coming soon">Classes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navbar-brand" href="<?php echo $loggedInLink ?>" title="Coming soon"><?php echo $loggedIn ?></a>
+                    <a class="nav-link navbar-brand" href="<?php echo $loggedInLink ?>" title="Account"><?php echo $loggedIn ?></a>
                 </li>
             </ul>
         </div>
