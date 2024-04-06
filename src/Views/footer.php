@@ -4,10 +4,10 @@
         <div class="col-6 col-md-2 mb-3">
             <h5>More Info</h5>
             <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#clubs" class="nav-link p-0 text-muted">Clubs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="about.html" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="<?php echo $headerHomePath ?>" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="<?php echo $headerControllersPath."clubs.php" ?>" class="nav-link p-0 text-muted">Clubs</a></li>
+            <li class="nav-item mb-2"><a href="<?php echo $headerControllersPath."contact.php" ?>" class="nav-link p-0 text-muted">Contact us</a></li>
+            <li class="nav-item mb-2"><a href="<?php echo $headerControllersPath."about.php" ?>" class="nav-link p-0 text-muted">About</a></li>
             </ul>
         </div>
     

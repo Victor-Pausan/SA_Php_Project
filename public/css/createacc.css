@@ -52,3 +52,9 @@ form .submit:hover {
 .login-link a{
     color:black;
 }
+
+.error-message {
+    color: darkred;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+}

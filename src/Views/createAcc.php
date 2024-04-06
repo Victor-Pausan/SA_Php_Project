@@ -39,23 +39,23 @@
             <div class="col">
               <form class="form" method="POST">
                 <div class="form-floating mb-3">
-                  <input name="fullname" id="fullname" type="text" class="form-control">
-                  <div id="fullname-error" class="error-message"></div>
-                  <label for="fullname">Full Name:</label>
+                  <input name="full-name" id="full-name" type="text" class="form-control">
+                  <div id="fullname-error" class="error-message"><?php echo isset($_SESSION["full-name-error".$form]) ? $_SESSION["full-name-error".$form] : ""; ?></div>
+                  <label for="full-name">Full Name:</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input name="email" id="email" type="text" class="form-control">
-                  <div id="email-error" class="error-message"></div>
+                  <div id="email-error" class="error-message"><?php echo isset($_SESSION["email-error".$form]) ? $_SESSION["email-error".$form] : ""; ?></div>
                   <label for="email">Email:</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input name="phonenr" id="phonenr" type="text" class="form-control">
-                  <div id="phonenr-error" class="error-message"></div>
-                  <label for="phonenr">Phone Number:</label>
+                  <input name="phone-nr" id="phone-nr" type="text" class="form-control">
+                  <div id="phonenr-error" class="error-message"><?php echo isset($_SESSION["phone-nr-error".$form]) ? $_SESSION["phone-nr-error".$form] : ""; ?></div>
+                  <label for="phone-nr">Phone Number:</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input name="password" id="password" type="password" class="form-control">
-                  <div id="password-error" class="error-message"></div>
+                  <div id="password-error" class="error-message"><?php echo isset($_SESSION["password-error".$form]) ? $_SESSION["password-error".$form] : ""; ?></div>
                   <label for="password">Password:</label>
                 </div>
                 <button class="submit" type="submit">Create account</button>
