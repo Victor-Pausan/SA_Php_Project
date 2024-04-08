@@ -38,8 +38,13 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["email"])){
                 exit();
             }
         }
-  
+        
+        if(isset($_SESSION["login_error"])){
+          unset($_SESSION["login_error"]);
+        } 
+
         header("Location: ../../public/index.php");
+        
       } else{
         $_SESSION["login_error"] = "Invalid email or passwordl!";
   

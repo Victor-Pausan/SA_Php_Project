@@ -21,7 +21,7 @@
                     <a class="nav-link navbar-brand" href="#" title="Coming soon">Membership</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navbar-brand" href="classes.html" title="Coming soon">Classes</a>
+                    <a class="nav-link navbar-brand" href="<?php echo $headerControllersPath."classes.php"; ?>" title="Coming soon">Classes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link navbar-brand" href="<?php echo $loggedInLink ?>" title="Account"><?php echo $loggedIn ?></a>

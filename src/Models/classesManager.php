@@ -9,8 +9,8 @@ if (
     && isset($_POST["name"]) && isset($_POST["duration"])
     && isset($_POST['description'])
 ) {
-    $sql = "INSERT INTO classes (class_name, gym_location_id, date, time, duration, trainer_name, description) 
-    VALUES (:classname, :location, :date, :time, :duration, :name, :description)";
+    $sql = "INSERT INTO classes (class_name, gym_location_id, date, time, duration, trainer_name, description, class_picture_path) 
+    VALUES (:classname, :location, :date, :time, :duration, :name, :description, :picture_path)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         ":classname" => $_POST["classname"],
@@ -20,6 +20,7 @@ if (
         ":duration" => $_POST["duration"],
         ":name" => $_POST["name"],
         ":description" => $_POST["description"],
+        ":picture_path" => $_POST["classname"].".png"
     ]);
 
     header("Location: ../Models/redirectClassesManager.php");
