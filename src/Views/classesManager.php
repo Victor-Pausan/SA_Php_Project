@@ -31,9 +31,9 @@
                         <div class="col">
                             <form class="form" method="POST">
                                 <div class="form-floating mb-3">
-                                    <input name="classname" id="classname" type="text" class="form-control">
-                                    <div id="classname-error" class="error-message"></div>
-                                    <label for="classname">Class Name:</label>
+                                    <input name="class-name" id="class-name" type="text" class="form-control">
+                                    <div id="class-name-error" class="error-message"></div>
+                                    <label for="class-name">Class Name:</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <select name="location" class="form-select" aria-label="Default select example">
@@ -55,17 +55,17 @@
                                 <div class="form-floating mb-3">
                                     <input name="time" id="time" type="time" class="form-control">
                                     <div id="time-error" class="error-message"></div>
-                                    <label for="time">Time:</label>
+                                    <label for="time">From:</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input name="duration" id="duration" type="time" class="form-control">
                                     <div id="duration-error" class="error-message"></div>
-                                    <label for="duration">Duration:</label>
+                                    <label for="duration">Until:</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input name="name" id="name" type="text" class="form-control">
                                     <div id="name-error" class="error-message"></div>
-                                    <label for="name">Name:</label>
+                                    <label for="name">Trainer:</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <textarea id="description" name="description" class="form-control"></textarea>
@@ -83,42 +83,51 @@
                     <div class="row">
                         <section id="schedule" class="schedule">
                             <?php
-                            foreach ($rows as $row) {
-                                //get gym location by id
-                                $sql = "SELECT zone FROM gym_locations WHERE gym_location_id = :id";
+                            foreach ($classes as $class) {
+                                $sql = "SELECT * FROM gym_locations WHERE gym_location_id= :gym_location_id";
                                 $stmt = $pdo->prepare($sql);
-                                $stmt->bindParam("id", $row["gym_location_id"]);
-                                $stmt->execute();
-                                $location = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                                echo (
-                                    '<div class="card text-center center">
-                                <div class="card-header">
-                                    Location:' . $location["zone"]
-                                    . '</div>
-                                        <div class="card-body">
-                                        <h5 class="card-title">Name: ' . $row["trainer_name"] . '</h5>
-                                        <form class="delete-form" method="POST">
-                                            <input type="hidden" name="delete", value="' . $row["class_id"] . '">
-                                            <button id="noselect" class="delete-btn">
-                                                <span class="text">Delete</span>
-                                                <span class="icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                        <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
-                                                        </path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                        </form>
+                                $stmt->execute(["gym_location_id" => $class["gym_location_id"]]);
+                                $gym = $stmt->fetch(PDO::FETCH_ASSOC);
+                                echo '
+                                <div class="card mb-3 p-3">
+                                    <div class="d-flex flex-row justify-content-between g-0">
+                                        <div class="col-md-3 d-flex align-items-center">
+                                            <img src="../../public/assets/img/' . $class["class_picture_path"] . '" class="img-fluid rounded-start mx-5" alt="..." style="width: 130px">
                                         </div>
-                                        <div class="card-footer text-body-secondary">
-                                        Date and time: ' . $row["date"] . ' at ' . $row["time"] . '
+                                        <div class="col-md-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">' . $class["class_name"] . '</h5>
+                                                <p class="card-text">' . $class["description"] . '</p>
+                                            </div>
                                         </div>
-                                    </div>'
-                                );
+                                        <div class="col-md-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">' . $class["trainer_name"] . '</h5>
+                                                <p class="card-text">' . $class["time"] . " - " . $class["duration"] . '</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">' . $gym["zone"] . '</h5>
+                                                <form class="delete-form" method="POST">
+                                                    <input type="hidden" name="delete" , value="' . $class["class_id"] . '"> 
+                                                        <button id="noselect" class="delete-btn">
+                                                            <span class="text">Delete</span>
+                                                            <span class="icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                    <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
+                                                                    </path>
+                                                                </svg>
+                                                            </span>
+                                                        </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div> 
+                                ';
                             }
                             ?>
-                            <!--  appointments list from the REST API -->
                         </section>
                     </div>
                 </div>

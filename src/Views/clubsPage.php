@@ -23,7 +23,7 @@
             <section class="container my-5">
                 <h1 class="text-left mb-5">FIND A CLUB NEAR YOU</h1>
                 <form class="form-inline justify-content-center" style="max-width: 450px;">
-                    <select name="state" class="form-select mb-3 form-select-lg" aria-label="Default select example">
+                    <select name="state" class="form-select mb-3 form-select-lg" aria-label="Default select example" onchange="this.form.submit();">
                         <option selected>Choose a state</option>
                         <?php
                         foreach ($states as $state) {
@@ -31,7 +31,6 @@
                         }
                         ?>
                     </select>
-                    <button type="submit" class="btn btn-primary">Search</button>
                 </form>
             </section>
 

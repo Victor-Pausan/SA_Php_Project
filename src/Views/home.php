@@ -34,7 +34,7 @@
                     <h1 class="card-title">ELITE TRAINING.</h1>
                     <h1 class="card-title">UNBEATABLE RESULTS.</h1>
                     <p class="card-text">Join now or stay average.</p>
-                    <a href="../src/Controllers/createAccount.php" class="btn btn-light">Get started.</a>
+                    <a href="<?php echo $getStarted ?>" class="btn btn-light">Get started.</a>
                 </span>
             </section>
             <section class="secondary-section">
@@ -64,7 +64,7 @@
                     <p class="square-p">Clubs that deliver an unrivaled experience to maximize your potential, and
                         luxury amenities that keep you performing at your best.</p>
                     <a href="<?php echo $headerControllersPath."clubs.php" ?>" title="Comming soon">
-                        <p class="square-p">Choose club</p>
+                        <p class="square-p">View clubs</p>
                     </a>
                 </div>
             </section>
