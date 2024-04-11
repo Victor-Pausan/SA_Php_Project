@@ -39,9 +39,13 @@
                 <div class="row">
                     <?php
                         foreach($states as $state){
+                            $subs_id = '';
+                            if(isset($_GET["subscription_id"])){
+                                $subs_id = '&subscription_id='.$_GET["subscription_id"];
+                            }
                             echo
                             '
-                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="clubsInState.php?state='.$state["state_id"].'">
+                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="clubsInState.php?state='.$state["state_id"].$subs_id.'">
                                 <div class="card text-bg-light mb-4 p-3">
                                     <div class="row g-0">
                                         <div class="col-md-8">

@@ -108,8 +108,6 @@ body {
     margin-left: 5rem;
 }
 
-/* BOOTSTRAP Overrides */
-
 .card-body {
     position: absolute;
     display: flex;
